@@ -16,7 +16,7 @@ class DirectDownloadLinkException(Exception):
 
 
 # {"url": "https://new.gdtot.eu/", "cookie": "crypt=; PHPSESSID=nv9735jl65b4t4t7t8642dvqb1"}
-CRYPT = "" # Crypt cookie
+CRYPT = "b0lDek5LSCt6ZjVRR2EwZnY4T1EvVndqeDRtbCtTWmMwcGNuKy8wYWpDaz0%3D" # Crypt cookie
 
 XSRF_TOKEN = "" # XSRF-TOKEN cookie
 laravel_session = "" # laravel_session cookie
@@ -34,7 +34,7 @@ def gdtot_bypass(url: str) -> str:
     with requests.Session() as client:
         client.cookies.update({'crypt': CRYPT})
         res = client.get(url)
-        res = client.get(f"https://new4.gdtot.cfd/dld?id={url.split('/')[-1]}")
+        res = client.get(f"https://new9.gdtot.cfd/dld?id={url.split('/')[-1]}")
     matches = re.findall('gd=(.*?)&', res.text)
     try:
         decoded_id = base64.b64decode(str(matches[0])).decode('utf-8')
